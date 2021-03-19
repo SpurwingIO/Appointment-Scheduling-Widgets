@@ -1,7 +1,7 @@
 let sp = new Spurwing();
-const PID = '3311c352-3c5e-4009-b5c3-1d550cc84398';
+const PID = 'your_provider_id';
 // let allAppTypes = await sp.get_appointment_types(PID, true);
-const appointmentTypeID = "59fabb02-d946-4849-b8b3-96a313f982a4";
+const appointmentTypeID = "your_appointment_type_id";
 let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 $(document).ready(() => {
