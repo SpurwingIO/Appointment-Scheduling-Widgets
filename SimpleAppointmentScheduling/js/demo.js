@@ -1,16 +1,16 @@
 let sp = new Spurwing();
-const PID = 'your_provider_id';
-// let allAppTypes = await sp.get_appointment_types(PID, true);
-const appointmentTypeID = "your_appointment_type_id";
-let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
+const PID = 'your_provider_id';
+const appointmentTypeID = "your_appointment_type_id"; // let allAppTypes = await sp.get_appointment_types(PID, true);
+const show_months = 2; // how many months to show (everything else disabled)
+
+let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 $(document).ready(() => {
   init_calendar();
 })
 
 async function init_calendar() {
     const days_available = [];
-    const show_months = 2; // how many months to show (everything else disabled)
     let minDate = moment();
     let maxDate = moment().add(show_months-1, 'M');
     while (minDate < maxDate) {
