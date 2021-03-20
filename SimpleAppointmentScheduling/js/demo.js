@@ -1,7 +1,7 @@
 let sp = new Spurwing();
 
 const PID = 'your_provider_id';
-const appointmentTypeID = "your_appointment_type_id"; // let allAppTypes = await sp.get_appointment_types(PID, true);
+const appointmentTypeID = "your_appointment_type_id"; // let allAppTypes = await sp.get_appointment_types(PID);
 const show_months = 2; // how many months to show (everything else disabled)
 
 let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -14,7 +14,7 @@ async function init_calendar() {
     let minDate = moment();
     let maxDate = moment().add(show_months-1, 'M');
     while (minDate < maxDate) {
-        let B = await sp.get_days_available(PID, appointmentTypeID, minDate.format('YYYY-MM-DD'), timezone, false);
+        let B = await sp.get_days_available(PID, appointmentTypeID);
         console.log({B});    
         days_available.push(...B.days_available)
         minDate = minDate.startOf('month').add(1, 'M')
@@ -42,7 +42,7 @@ async function onSelectHandler(date) {
         return; // sometimes clicking on whitespace unselects, useless feature.
     }
     
-    let C = await sp.get_slots_available(PID, appointmentTypeID, selectedDate, selectedDate, false)
+    let C = await sp.get_slots_available(PID, appointmentTypeID, selectedDate, selectedDate)
     console.log({C})
 
     let slots = []
@@ -65,7 +65,7 @@ $(document).on('click', '#book_slot', async function(e) {
     const email = $('#email').val();
     if (name && name.length > 1 && email && email.length > 1 && selectedSlot && selectedSlot.length > 1) {
         try {
-            let D = await sp.complete_booking(PID, appointmentTypeID, selectedSlot, timezone, name, '-', email, '', 'Online Booking');
+            let D = await sp.complete_booking(PID, appointmentTypeID, email, name, '-', selectedSlot, 'Online Booking');
             console.log({D})
             if (D && 'appointment' in D && D.appointment.id) {
                 $('.box').html('Appointment booked!<br>' + moment(fixDateOffset(selectedSlot)).format('HH:mm') + ' to ' + moment(fixDateOffset(D.appointment.end)).format('HH:mm') )
