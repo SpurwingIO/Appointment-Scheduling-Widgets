@@ -14,7 +14,7 @@
 .calendar-box {
     text-align: center;
     display: block;
-    max-width: 360px;
+    max-width: 420px;
     width: 80%;
     margin: 0 auto;
     margin-top: 0em;
@@ -48,7 +48,9 @@
     }
 }
 
-
+.pignose-calendar {
+    max-width: 420px;
+}
 .pignose-calendar .pignose-calendar-unit a {
     opacity: 1;
     background-color: #efefef;
