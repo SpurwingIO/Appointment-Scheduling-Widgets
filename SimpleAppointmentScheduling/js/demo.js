@@ -1,8 +1,8 @@
-
+;((SpurwingPID, SpurwingAPTID) => {
 let sp = new Spurwing();
 
-const PID = '3311c352-3c5e-4009-b5c3-1d550cc84398';
-const appointmentTypeID = "59fabb02-d946-4849-b8b3-96a313f982a4"; // let allAppTypes = await sp.get_appointment_types(PID);
+// const SpurwingPID = 'provider_id';
+// const SpurwingAPTID = "appointment_type_id"; // let allAppTypes = await sp.get_appointment_types(SpurwingPID);
 const show_months = 3; // how many months to show (everything else disabled)
 
 let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -28,7 +28,7 @@ async function init_calendar() {
     let maxDate = moment().add(show_months-1, 'M');
     disabledDates = []
     while (minDate < maxDate) {
-        let B = await sp.get_days_available(PID, appointmentTypeID, minDate);
+        let B = await sp.get_days_available(SpurwingPID, SpurwingAPTID, minDate);
         console.log({B});    
         days_available.push(...B.days_available)
         minDate = minDate.startOf('month').add(1, 'M')
@@ -63,7 +63,7 @@ async function onSelectHandler(date) {
         return; // sometimes clicking on whitespace unselects, useless feature.
     }
     
-    let C = await sp.get_slots_available(PID, appointmentTypeID, selectedDate, selectedDate)
+    let C = await sp.get_slots_available(SpurwingPID, SpurwingAPTID, selectedDate, selectedDate)
     console.log({C})
 
     let slots = []
@@ -89,7 +89,7 @@ $(document).on('click', '#calendar-book_slot', async function(e) {
     $('.calendar-slots').css({'background-color': 'white'})
     if (name && name.length > 1 && email && email.length > 1 && selectedSlot && selectedSlot.length > 1) {
         try {
-            let D = await sp.complete_booking(PID, appointmentTypeID, email, name, '-', selectedSlot, 'Online Booking');
+            let D = await sp.complete_booking(SpurwingPID, SpurwingAPTID, email, name, '-', selectedSlot, 'Online Booking');
             console.log({D})
             if (D && 'appointment' in D && D.appointment.id) {
                 $('.calendar-box').html('Appointment booked!<br>' + moment(fixDateOffset(selectedSlot)).format('HH:mm') + ' to ' + moment(fixDateOffset(D.appointment.end)).format('HH:mm') )
@@ -109,3 +109,4 @@ $(document).on('click', '#calendar-book_slot', async function(e) {
         }
     }
 })
+})(SpurwingPID, SpurwingAPTID);
