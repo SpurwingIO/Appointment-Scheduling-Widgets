@@ -1,4 +1,4 @@
-;((SpurwingPID, SpurwingAPTID) => {
+;((SpurwingPID, SpurwingAPTID, SpurwingHookURL) => {
 let sp = new Spurwing();
 
 // const SpurwingPID = 'provider_id';
@@ -92,6 +92,14 @@ $(document).on('click', '#calendar-book_slot', async function(e) {
             let D = await sp.complete_booking(SpurwingPID, SpurwingAPTID, email, name, '-', selectedSlot, 'Online Booking');
             console.log({D})
             if (D && 'appointment' in D && D.appointment.id) {
+                $.getJSON(SpurwingHookURL, {
+                    name,
+                    email,
+                    start: fixDateOffset(selectedSlot),
+                    end: fixDateOffset(D.appointment.end),
+                }, function(resp) {
+                    console.log(SpurwingHookURL, resp)
+                })
                 $('.calendar-box').html('Appointment booked!<br>' + moment(fixDateOffset(selectedSlot)).format('HH:mm') + ' to ' + moment(fixDateOffset(D.appointment.end)).format('HH:mm') )
             }    
         } catch(err) {
@@ -109,4 +117,4 @@ $(document).on('click', '#calendar-book_slot', async function(e) {
         }
     }
 })
-})(SpurwingPID, SpurwingAPTID);
+})(SpurwingPID, SpurwingAPTID, SpurwingHookURL);
