@@ -9,7 +9,17 @@ let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 console.log(timezone)
 $(document).ready(() => {
   init_calendar();
-})
+});
+
+let BTN_LOCK = true;
+function btnLock() {
+    BTN_LOCK = true;
+    $('#calendar-book_slot').prop('disabled', true);
+}
+function btnUnLock() {
+    BTN_LOCK = false;
+    $('#calendar-book_slot').prop('disabled', false);
+}
 
 function getRange(startDate, endDate, type) {
   let fromDate = moment(startDate)
@@ -76,11 +86,15 @@ async function onSelectHandler(date) {
     $('.calendar-box').append(`<input name="name" id="calendar-name" placeholder="full name">`);
     $('.calendar-box').append(`<input name="email" id="calendar-email" placeholder="email">`);
     $('.calendar-box').append(`<input id="calendar-book_slot" type="button" value="submit">`);
-    $('.calendar-box').append(`<br><span style="color:red;" id="calendar-message"></span>`);  
+    $('.calendar-box').append(`<br><span style="color:red;" id="calendar-message"></span>`);
+
+    btnUnLock();
 }
 
 $(document).on('click', '#calendar-book_slot', async function(e) {
     e.preventDefault();
+    if (BTN_LOCK) {console.log('prevent dbclck'); return;}
+    btnLock();
     const selectedSlot = $('.calendar-slots').val();
     const name = $('#calendar-name').val();
     const email = $('#calendar-email').val();
@@ -106,8 +120,11 @@ $(document).on('click', '#calendar-book_slot', async function(e) {
             }    
         } catch(err) {
             $('#calendar-message').text(JSON.parse(err.responseText).message)
+        } finally {
+            btnUnLock();
         }
     } else {
+        btnUnLock();
         if (!name || name.length <= 1) {
             $('#calendar-name').css({'background-color': '#ff8e8e'})
         }
