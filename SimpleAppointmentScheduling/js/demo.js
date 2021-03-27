@@ -78,7 +78,7 @@ async function onSelectHandler(date) {
 
     let slots = []
     for (const el of C.slots_available) {
-        const slot = moment(fixDateOffset(el.date)).format('HH:mm')
+        const slot = moment(fixDateOffset(el.date)).format('hh:mm A')
         slots.push(`<option value="${el.date}">${slot}</a>`);
     }
     
@@ -116,7 +116,7 @@ $(document).on('click', '#calendar-book_slot', async function(e) {
                         console.log(SpurwingHookURL, resp)
                     })
                 }
-                $('.calendar-box').html('Appointment booked!<br>' + moment(fixDateOffset(selectedSlot)).format('HH:mm') + ' to ' + moment(fixDateOffset(D.appointment.end)).format('HH:mm') )
+                $('.calendar-box').html('Appointment booked!<br>' + moment(fixDateOffset(selectedSlot)).format('hh:mm A') + ' to ' + moment(fixDateOffset(D.appointment.end)).format('hh:mm A') )
             }    
         } catch(err) {
             $('#calendar-message').text(JSON.parse(err.responseText).message)
