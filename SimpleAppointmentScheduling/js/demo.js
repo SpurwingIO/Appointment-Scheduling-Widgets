@@ -1,8 +1,6 @@
 ;((SpurwingPID, SpurwingAPTID, SpurwingHookURL) => {
-let sp = new Spurwing();
 
-// const SpurwingPID = 'provider_id';
-// const SpurwingAPTID = "appointment_type_id"; // let allAppTypes = await sp.get_appointment_types(SpurwingPID);
+let sp = new Spurwing();
 const show_months = 3; // how many months to show (everything else disabled)
 
 let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
