@@ -11,7 +11,7 @@ console.log(timezone)
 $(document).ready(async () => {
     await init_calendar();
 
-    let socket = io('https://nevolin.be', {
+    let socket = io(SpurwingWSURL, {
         path: "/Spurwing/audio/socket.io"
     });
 
