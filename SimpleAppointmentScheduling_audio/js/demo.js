@@ -60,7 +60,7 @@ $(document).ready(async () => {
         })
     }).catch((err) => {
         alert("You must allow your microphone.");
-        console.log(error);
+        console.log(err);
     });
     
 });
@@ -93,7 +93,8 @@ async function init_calendar() {
     disabledDates = []
     while (minDate < maxDate) {
         let B = await sp.get_days_available(SpurwingPID, SpurwingAPTID, minDate);
-        console.log({B});    
+        console.log({B});
+        if (!B.days_available) return console.error('get_days_available returns invalid data');
         days_available.push(...B.days_available)
         minDate = minDate.startOf('month').add(1, 'M')
     }
