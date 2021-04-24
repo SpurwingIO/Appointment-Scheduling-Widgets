@@ -15,3 +15,6 @@ The file `index.html` contains JavaScript code which can generate encode plain t
 
 The default settings allow you to encode 62 characters, which is usally enough for a simple URL or message.
 If you need to encode longer texts you can tweek the settings (`version` and `ECL`) using this [reference sheet](https://www.qrcode.com/en/about/version.html).
+
+## Bookings with QR codes
+Since QR codes can encode URLs, we can encode a link to our Appointment Scheduling or Availability Page. For instance our page on Spurwing which allows users to book a demo call: https://www.spurwing.io/learn-more
