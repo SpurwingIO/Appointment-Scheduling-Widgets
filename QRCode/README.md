@@ -2,7 +2,7 @@
 This directory is for QR code related projects.
 
 ## Intro
-QR codes allow us to embed/encode information in limited area which we all know as this rectangle filled with black and white rectangles. The science and math behind QR codes isn't very easy, but there are a ton of articles and videos on YouTube that explain the process.
+QR codes allow us to embed/encode information as an image, which we all know as this large square filled with smaller black and white squares. The science and math behind QR codes isn't very easy, but there are a ton of articles and videos on YouTube that explain the process.
 
 All modern phones have a built-in QR Code Scanner which decodes the information. If the encoded data was just text, your phone will show the message, but if it's an URL then it will prompt you to open it in the browser. It's a great way to promote your website or project. But we can also use it for embedding email addresses or special app events.
 
