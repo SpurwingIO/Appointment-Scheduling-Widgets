@@ -14,7 +14,12 @@ The file `index.html` contains JavaScript code which can encode plain text into 
 ![image](https://user-images.githubusercontent.com/9488406/115966685-0a501b00-a52f-11eb-8c57-db2d6ba9dc26.png)
 
 The default settings allow you to encode 62 characters, which is usally enough for a simple URL or message.
-If you need to encode longer texts you can tweek the settings (`version` and `ECL`) using this [reference sheet](https://www.qrcode.com/en/about/version.html).
+If you need to encode longer texts you can tweek the settings (`version` and `ECL`) using this [reference sheet](https://www.qrcode.com/en/about/version.html). The library we used for QR code generation is this one.
 
 ## Bookings with QR codes
-Since QR codes can encode URLs, we can encode a link to our Appointment Scheduling or Availability Page. For instance our page on Spurwing which allows users to book a demo call: https://www.spurwing.io/learn-more
+Since QR codes can encode URLs, we can encode a link pointing to our Appointment Scheduling or Availability Page. For instance our page on Spurwing which allows users to book a demo call: https://www.spurwing.io/learn-more
+
+Similarly you can encode your email address as such mailto:ilya@spurwing.io When scanning that QR code your device will prompt you to open the Email app with your email in the recipient field.
+
+## Conclusion
+QR codes are a wonderful technological invention. Unfortunately they are not (yet) very common in the west, but in Asia they are used like crazy.
