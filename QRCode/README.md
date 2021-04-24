@@ -19,7 +19,7 @@ If you need to encode longer texts you can tweek the settings (`version` and `EC
 ## Bookings with QR codes
 Since QR codes can encode URLs, we can encode a link pointing to our Appointment Scheduling or Availability Page. For instance our page on Spurwing which allows users to book a demo call: https://www.spurwing.io/learn-more
 
-Similarly you can encode your email address as such mailto:ilya@spurwing.io When scanning that QR code your device will prompt you to open the Email app with your email in the recipient field.
+Similarly you can encode your email address as such `mailto:ilya@spurwing.io` When scanning that QR code your device will prompt you to open the Email app with your email in the recipient field.
 
 ## Conclusion
 QR codes are a wonderful technological invention. Unfortunately they are not (yet) very common in the west, but in Asia they are used like crazy.
