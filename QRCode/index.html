@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+  <title>Spurwing x QR</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" integrity="sha512-ZDSPMa/JM1D+7kdg2x3BsruQ6T/JpJo3jWDWkCZsP+5yVyp1KfESqLI+7RqB5k24F7p2cV7i2YHh/890y6P6Sw==" crossorigin="anonymous"></script>
+</head>
+  <body>
+    <div id="qr"></div>
+
+    <div>
+      <input type="text" id="text">
+      <button id="generate">generate</button>
+    </div>
+
+    <script>
+
+      $(document).ready(()=> {
+        update_qrcode('https://spurwing.io')
+        $('#text').val('https://spurwing.io')
+      })
+
+      $('#generate').click(e => {
+        update_qrcode($('#text').val())
+      })
+
+      function update_qrcode(text) {
+        text = text.replace(/^[\s\u3000]+|[\s\u3000]+$/g, '');
+        console.log(text, text.length)
+        // https://www.qrcode.com/en/about/version.html
+        document.getElementById('qr').innerHTML =
+          create_qrcode(text, 4, 'M', 'Byte', 'UTF-8');
+      };
+
+      function create_qrcode(text, version, ECL, mode, mb) {
+        qrcode.stringToBytes = qrcode.stringToBytesFuncs[mb];
+        let qr = qrcode(version || 4, ECL || 'M');
+        qr.addData(text, mode);
+        qr.make();
+        // return qr.createImgTag();
+        return qr.createSvgTag();
+      };
+      
+    </script> 
+  </body>
+</html>
