@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    <title>Spurwing Calendar Widget</title>
+
+    <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.min.css"/>
+
+    <script type="text/javascript">
+        const SpurwingPID = '725037e8-fcf7-4691-a73a-c8d9510ccf49';
+        const SpurwingAPTID = 'ac44ad25-c02a-444b-9c1b-cd25d85eab89';
+        const SpurwingHookURL = null;
+    </script>
+    <script type="text/javascript" src="https://spurwing.github.io/Spurwing-API-Javascript-Library/spurwing.js"></script>
+  
+    <style>
+      .timepicker {
+          display: none;
+          width: 120px;
+          border: 1px solid black;
+          overflow-y: scroll;
+          overflow-x: hidden;
+      }
+      .timepicker button {
+        width: 90px;
+        height: 30px;
+      }
+      .selected {
+        background-color: green;
+      }
+    </style>
+  
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="jquery.datetimepicker.full.min.js"></script>
+    <script type="text/javascript" src="demo.js"></script>
+</head>
+
+<body>
+    <input id="picker" type="text">
+    <div class="timepicker"></div>
+    <p id="notes"></p>
+  <div class="demo-container"> 
+    <div id="divTable"></div>
+  </div>
+</body>
+</html>
