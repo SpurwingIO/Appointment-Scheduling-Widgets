@@ -20,12 +20,9 @@
       console.log(D);
       //}
         
-      
-      $("#calendar-book_slot.form").submit(function(e) {
           $(".form").hide();
           $('#postresult').html('Appointment booked!');
           $("#calendar-book_slot").prop('disabled', true);
-      });
     });  
     
 	});
