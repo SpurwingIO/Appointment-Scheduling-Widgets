@@ -3,6 +3,8 @@
 ## Intro
 This widget is built using HTML, CSS, (ES6) JavaScript and jQuery. The used Calendar library is [pg-calendar](https://github.com/KennethanCeyer/pg-calendar).
 
+YouTube Tutorial & Demo: https://www.youtube.com/watch?v=60llvnv3nDA
+
 ## Usage
 - Upload the contents to an HTTP server and visit it.
 - Select an available date on the calendar.
