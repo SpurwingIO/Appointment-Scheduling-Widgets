@@ -4,7 +4,7 @@ This repository contains different appointment scheduling widgets and calendar m
 
 More information and details will be added soon.
 
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/9488406/119051790-e8c64000-b9c3-11eb-9f1b-779db86f5ae3.png)
 
 ## Support
 - Our website: https://www.spurwing.io/
