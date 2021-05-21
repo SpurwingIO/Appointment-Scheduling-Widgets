@@ -1,7 +1,7 @@
 var sp = new Spurwing();
 
 //=============== provide Spurwing provider ID  here ==============
-const SpurwingPID="da960917-20ef-4bb1-8b2d-4b17dee81302"; 
+const SpurwingPID="providerid"; 
 //======================================================================
 
 async function submitAppt(date,typeId){
