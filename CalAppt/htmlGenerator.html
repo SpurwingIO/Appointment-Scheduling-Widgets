@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CalAppt</title>
+    <title>html Generator</title>
 
     <!--  CSS  -->
 
@@ -12,12 +12,15 @@
     <!--  JS  -->
     <script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.js"></script>
     <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.js"></script>
+    
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://spurwing.github.io/Spurwing-API-Javascript-Library/spurwing.js"></script>
-    <script type="text/javascript" src="calendar.js"></script>
+    <script type="text/javascript" src="htmlGenerator.js"></script>
   </head>
   <body>
-    <h1 class="header"> Spuwing Appointment Picking Board</h1>
+    <div id="demo"></div>
+    
+    <div id ="user-select-session" style="visibility: visible"></div>
     <div class="code-html">
       <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
           <input type="text" id="datepicker-input" aria-label="Date-Time" />
@@ -25,7 +28,7 @@
       </div>
       <div id="wrapper" style="margin-top: -1px;"></div>
     </div>
-
+    
     <script class="code-js">
       $(document).ready(function() {
         load();

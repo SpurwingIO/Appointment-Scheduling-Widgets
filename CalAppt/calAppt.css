@@ -1,0 +1,39 @@
+body {
+    background-color: #435182;
+}
+.workbench,#demo,#clientInfo{
+  background-color:white;
+  padding: 5px;
+  border-radius: 15px;
+}
+.header{
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+#clientInfo{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+#instruction{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.timeButton,.confirmButton{
+  background-color: #435182;
+  border-radius: 15px;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  width: 100px;
+}
+.apptTypeButton,#generate-button,#copy-button,#confirm-button{
+  background-color: #435182;
+  border-radius: 15px;
+  border: 4px double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  width: 120px;
+  margin: 5px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ApptTaker</title>
+
+    <!--  CSS  -->
+    <link rel="stylesheet" type="text/css" href="calAppt.css" />
+    <!--  JS  -->
+    <script
+      type="text/javascript"
+      src="https://spurwing.github.io/Spurwing-API-Javascript-Library/spurwing.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+    ></script>
+
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="htmlGenerator.js"></script>
+  </head>
+  <body>
+    <div id="clientInfo"></div>
+    <script async>
+      var sp = new Spurwing();
+      
+      async function apptMaker(typeId,time){
+        try{
+          let apptStatus = await sp.complete_booking(SpurwingPID, typeId, $("#custEmail").val(), $("#custFirstname").val(), $("#custLastname").val(), time, "Test booking");
+          $('#clientInfo').html("<h4 id='instruction'> See you at "+time+".</h4>");
+
+        }catch(err){
+          $('#clientInfo').html("<h4 id='instruction'>Sorry, current appointment time has been token, please select another timeslot from email.</h4>");
+        }
+      }
+      
+      $(document).ready(async function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let time = urlParams.get('time');
+        let typeId=urlParams.get('spurwingTypeId');
+        //let type = urlParams.get('type')
+        
+        let type=await sp.get_appointment_types(SpurwingPID);
+        type=type.filter(t=>t.id==typeId);
+        type=type[0];
+        if (type){type=type.name;}else{console.log("Fail to match appointment type with provided type ID");}
+        time=time.replace("T"," ");
+        time= time.substring(0,13)+ ':' + time.substring(14);
+        $('#clientInfo').html('Please confirm your booking (' +type+ '): ' + time+
+                           '<br>First Name <input type="text" id="custFirstname"><br>Last Name <input type="text" id="custLastname"><br>Email <input type="text" id="custEmail"><br><button id="confirm-button" onclick="apptMaker(`'
+                           +typeId+'`,`'+time+'`)">Confirm</select>');            
+        });
+    </script>
+  </body>
+</html>
