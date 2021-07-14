@@ -1,7 +1,7 @@
 # Simple Appointment Scheduling
 
 ## Intro
-This widget is built using HTML, CSS, (ES6) JavaScript and jQuery. The used Calendar library is [pg-calendar](https://github.com/KennethanCeyer/pg-calendar). Learn more about the [Spurwing Scheduling API](https://github.com/Spurwing/Appointment-Scheduling-API).
+This widget is built using HTML, CSS, (ES6) JavaScript and jQuery. The used Calendar library is [pg-calendar](https://github.com/KennethanCeyer/pg-calendar). Learn more about the [Spurwing Scheduling API](https://github.com/Spurwingio/Appointment-Scheduling-API).
 
 ## Usage
 - Upload the contents to an HTTP server and visit it.
