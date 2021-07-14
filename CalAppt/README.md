@@ -2,7 +2,7 @@
 
 ## Intro
 
-This set of widgets are built with HTML, CSS, JavaScript and jQuery with the supporting library [tui.date-picker](https://github.com/nhn/tui.date-picker). Learn more about the [Spurwing Scheduling API](https://github.com/Spurwing/Appointment-Scheduling-API).
+This set of widgets are built with HTML, CSS, JavaScript and jQuery with the supporting library [tui.date-picker](https://github.com/nhn/tui.date-picker). Learn more about the [Spurwing Scheduling API](https://github.com/Spurwingio/Appointment-Scheduling-API).
 
 ## Usage
 
